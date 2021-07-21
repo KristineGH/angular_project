@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   onCreateProduct() {
-    this.router.navigate(['/products/add']);
+    this.router.navigate(['user/products/add']);
   }
 
   onDeleteProduct(id) {
@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   onEditProduct(id) {
-    this.router.navigate([`products/edit/${id}`])
+    this.router.navigate([`user/products/edit/${id}`])
   }
 
   ngOnDestroy() {

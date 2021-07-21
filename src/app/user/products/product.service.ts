@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { Product } from './product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +31,6 @@ export class ProductService {
   }
 
   deleteProduct(productId) {
-    console.log(productId);
     console.log(localStorage.getItem('token'));
     return this.http.delete(`${environment.heroku}/products/${productId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

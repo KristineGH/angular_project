@@ -58,7 +58,7 @@ export class EditProductComponent implements OnInit, OnDestroy {
       .subscribe();
 
     this.editForm.reset();
-    this.router.navigate(['/products']);
+    this.router.navigate(['/user/products']);
   }
 
   ngOnDestroy() {

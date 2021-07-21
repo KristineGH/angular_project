@@ -4,9 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsRoutingModule } from './products-routing.module';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { StartProductsComponent } from './start-products/start-products.component';
 
 @NgModule({
-  declarations: [AddProductComponent, EditProductComponent],
+  declarations: [AddProductComponent, EditProductComponent, StartProductsComponent],
   imports: [
     CommonModule,
     FormsModule,

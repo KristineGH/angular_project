@@ -11,12 +11,13 @@ import { ButtonModule } from 'primeng/button';
 import { BadgeModule } from 'primeng/badge';
 import { AccordionModule } from 'primeng/accordion';
 import { InputTextModule } from 'primeng/inputtext';
-import { ProductsComponent } from './products/products.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { UserComponent } from './user/user.component';
+import { ProductsComponent } from './user/products/products.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ProductsComponent],
+  declarations: [AppComponent, HeaderComponent, ProductsComponent, UserComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
