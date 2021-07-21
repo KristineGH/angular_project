@@ -1,0 +1,29 @@
+.product-create-form {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #6daeff;
+  padding: 10px;
+  margin-top: 39px;
+}
+
+.p-float-label {
+  margin-top: 21px;
+}
+.p-inputtext {
+  width: 441px;
+}
+
+.add-btn {
+  color: #fff;
+  background-color: #3a96de;
+  border-color: #ffffff;
+  width: 537px;
+}
+
+.product-create-form input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.product-create-form textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

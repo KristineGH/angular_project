@@ -1,0 +1,37 @@
+.card {
+  width: 18rem;
+  height: 28rem;
+  margin-top: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+.create-button {
+  margin-left: -309px;
+  margin-top: 6px;
+}
+
+.save-button {
+  width: 87px;
+  margin-right: 47px;
+}
+
+.delete-button {
+  width: 87px;
+}
+
+.edit-button {
+  margin-top: 2px;
+  margin-left: 223px;
+  width: 46px;
+}
+
+.card-image {
+  max-height: 245px;
+  min-height: 245px;
+  min-width: 204px;
+  max-width: 256px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

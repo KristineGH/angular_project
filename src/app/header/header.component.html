@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a routerLink="/" class="navbar-brand">Product List</a>
+    </div>
+
+    <div class="nav-item dropdown">
+      <a class="nav-link" href="#" data-bs-toggle="dropdown">
+        <button
+          pButton
+          type="button"
+          class="p-button-raised p-button-rounded"
+          icon="pi pi-user"
+        ></button>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" (click)="onLogin()" *ngIf="!validUser">
+            Login
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="onLogout()" *ngIf="validUser">
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button
+        pButton
+        type="button"
+        class="p-button-raised p-button-rounded p-button-secondary"
+        icon="pi pi-bookmark"
+        *ngIf="validUser"
+        (click)="onSaved()"
+      ></button>
+      <!-- <i class="pi" pBadge [value]="savedItemNumber" *ngIf="validUser"></i> -->
+    </div>
+    <!-- <div class="navbar-header">
+        <a style="cursor: pointer;" (click)="onLogin()" *ngIf="!validUser">Login</a>
+        <a style="cursor: pointer;" (click)="onLogout()" *ngIf="validUser">Logout</a>
+      </div> -->
+  </div>
+</nav>

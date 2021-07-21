@@ -1,0 +1,57 @@
+<div>
+  <form
+    class="product-create-form"
+    [formGroup]="createForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Image address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="address"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="title"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="info"
+        ></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="price"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary add-btn"
+        [disabled]="!this.createForm.valid"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+</div>

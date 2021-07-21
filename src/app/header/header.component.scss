@@ -1,0 +1,25 @@
+@media all and (min-width: 992px) {
+  .navbar {
+    background-color: #c6deff;
+  }
+  .navbar .nav-item .dropdown-menu {
+    display: none;
+  }
+  .navbar .nav-item:hover .nav-link {
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    display: block;
+    margin-left: -49px;
+  }
+  .navbar .nav-item .dropdown-menu {
+    margin-top: 0;
+    text-align: center;
+  }
+}
+
+.nav-item.dropdown {
+  /* margin-left: 667px; */
+  width: 44px;
+  /* margin-right: -58px; */
+  margin-left: 74%;
+}

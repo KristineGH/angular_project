@@ -1,17 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Subscription } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit, OnDestroy {
   public signInForm: any;
+  public userSignIn: Subscription;
+  public error: Error;
 
-  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
@@ -22,15 +30,27 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     const email = this.signInForm.value.email;
-    const password = this.signInForm.value.password
+    const password = this.signInForm.value.password;
 
-    this.authService.signIn(email, password).subscribe(data => {
-      console.log(data)
-    })
-
+    this.userSignIn = this.authService.signIn(email, password).subscribe(
+      (data) => {
+        if (data.accessToken) {
+          this.router.navigate(['/products']);
+        }
+      },
+      (errorMessage) => {
+        this.error = errorMessage;
+      }
+    );
   }
 
   onRegister() {
     this.router.navigate(['auth/register']);
+  }
+
+  ngOnDestroy() {
+    if (this.userSignIn) {
+      this.userSignIn.unsubscribe();
+    }
   }
 }

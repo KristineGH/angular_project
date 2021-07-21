@@ -1,13 +1,14 @@
-* {
+.form {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica,
     Arial, sans-serif;
   font-weight: 300;
   margin: 0;
+  
 }
 $primary: rgb(182, 157, 230);
-html,
-body {
-  height: 100vh;
+
+.form {
+  height: 88vh;
   width: 100vw;
   margin: 0 0;
   display: flex;
@@ -15,12 +16,7 @@ body {
   justify-content: flex-start;
   background: #f3f2f2;
 }
-h4 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #000;
-  opacity: 0.85;
-}
+
 label {
   font-size: 12.5px;
   color: #000;
@@ -114,7 +110,7 @@ input {
 
 input.ng-invalid.ng-touched {
   border-bottom: solid 1.5px rgb(255 0 0 / 89%);
-} 
+}
 .floating-label {
   position: relative;
   margin-bottom: 10px;
