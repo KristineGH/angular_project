@@ -12,7 +12,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class SignInComponent implements OnInit, OnDestroy {
   public signInForm: any;
-  public userSignIn: Subscription;
+  public userSignInSubscription: Subscription;
   public error: Error;
 
   constructor(
@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     const email = this.signInForm.value.email;
     const password = this.signInForm.value.password;
 
-    this.userSignIn = this.authService.signIn(email, password).subscribe(
+    this.userSignInSubscription = this.authService.signIn(email, password).subscribe(
       (data) => {
         if (data.accessToken) {
           this.router.navigate(['/products']);
@@ -49,8 +49,8 @@ export class SignInComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.userSignIn) {
-      this.userSignIn.unsubscribe();
+    if (this.userSignInSubscription) {
+      this.userSignInSubscription.unsubscribe();
     }
   }
 }

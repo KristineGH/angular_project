@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit, OnDestroy {
   public signUpForm: any;
-  private userSignUp: Subscription;
+  private userSignUpSubscription: Subscription;
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     const email = this.signUpForm.value.email;
     const password = this.signUpForm.value.password;
     console.log(email, password);
-    this.userSignUp = this.authService
+    this.userSignUpSubscription = this.authService
       .signUp(email, password)
       .subscribe((data) => {
         if (data.accessToken) {
@@ -40,8 +40,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.userSignUp) {
-      this.userSignUp.unsubscribe();
+    if (this.userSignUpSubscription) {
+      this.userSignUpSubscription.unsubscribe();
     }
   }
 }

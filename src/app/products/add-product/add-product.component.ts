@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent implements OnInit, OnDestroy {
   public createForm;
-  private sendProduct: Subscription;
+  private sendProductSubscription: Subscription;
 
   constructor(
     private fb: FormBuilder,
@@ -34,17 +34,17 @@ export class AddProductComponent implements OnInit, OnDestroy {
     const info = this.createForm.value.info;
     const price = this.createForm.value.price;
 
-    this.productService
+    this.sendProductSubscription = this.productService
       .sendProduct(image, title, info, price)
       .subscribe((data) => console.log(data));
 
-     this.createForm.reset() 
-     this.router.navigate(["/products"])
+    this.createForm.reset();
+    this.router.navigate(['/products']);
   }
 
   ngOnDestroy() {
-    if (this.sendProduct) {
-      this.sendProduct.unsubscribe();
+    if (this.sendProductSubscription) {
+      this.sendProductSubscription.unsubscribe();
     }
   }
 }

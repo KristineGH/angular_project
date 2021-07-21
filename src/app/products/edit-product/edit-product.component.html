@@ -1,10 +1,10 @@
 <div>
-  <h1 class="add-h1">Add Product</h1>
+  <h1 class="edit-h1">Edit Product</h1>
   <div>
     <form
       class="product-create-form"
-      [formGroup]="createForm"
-      (ngSubmit)="onSubmit()"
+      [formGroup]="editForm"
+      (ngSubmit)="onSubmitForm()"
     >
       <div>
         <div class="mb-3">
@@ -52,9 +52,9 @@
         <button
           type="submit"
           class="btn btn-primary add-btn"
-          [disabled]="!this.createForm.valid"
+          [disabled]="!editForm.valid"
         >
-          Add
+          Edit
         </button>
       </div>
     </form>

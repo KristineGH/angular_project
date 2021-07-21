@@ -6,10 +6,7 @@
     class="p-button-outlined create-button"
     (click)="onCreateProduct()"
   ></button>
-  <div
-    class="card"
-    *ngFor="let product of products"
-  >
+  <div class="card" *ngFor="let product of products">
     <img [src]="product.image" class="card-img-top card-image" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ product.title }}</h5>
@@ -21,10 +18,12 @@
         }}
       </p>
       <p class="card-text">{{ product.price | currency }}</p>
-      <a class="btn btn-primary save-button" 
-        >Save</a
+      <a class="btn btn-primary save-button">Save</a>
+      <button
+        class="btn btn-primary delete-button"
+        type="button"
+        (click)="onDeleteProduct(product.id)"
       >
-      <button class="btn btn-primary delete-button" type="button" (click)="onDeleteProduct(product.id)">
         Delete
       </button>
       <button
@@ -32,6 +31,7 @@
         type="button"
         icon="pi pi-filter"
         class="p-button-text edit-button"
+        (click)="onEditProduct(product.id)"
       >
         Edit
       </button>

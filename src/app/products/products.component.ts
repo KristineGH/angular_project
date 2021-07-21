@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit, OnDestroy {
   public products = [];
-  private getProducts: Subscription;
-  private deleteProduct: Subscription;
+  private getProductsSubscription: Subscription;
+  private deleteProductSubscription: Subscription;
 
   constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
-    this.getProducts = this.productService.getProducts().subscribe((data) => {
+    this.deleteProductSubscription = this.productService.getProducts().subscribe((data) => {
       this.products = JSON.parse(JSON.stringify(data));
       console.log(data);
     });
@@ -27,10 +27,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   onDeleteProduct(id) {
-    this.deleteProduct = this.productService
+    this.deleteProductSubscription = this.productService
       .deleteProduct(id)
       .subscribe((data) => {
-        this.getProducts = this.productService
+        this.getProductsSubscription = this.productService
           .getProducts()
           .subscribe((data) => {
             this.products = JSON.parse(JSON.stringify(data));
@@ -38,12 +38,16 @@ export class ProductsComponent implements OnInit, OnDestroy {
       });
   }
 
+  onEditProduct(id) {
+    this.router.navigate([`products/edit/${id}`])
+  }
+
   ngOnDestroy() {
-    if (this.getProducts) {
-      this.getProducts.unsubscribe();
+    if (this.getProductsSubscription) {
+      this.getProductsSubscription.unsubscribe();
     }
-    if (this.deleteProduct) {
-      this.deleteProduct.unsubscribe();
+    if (this.deleteProductSubscription) {
+      this.deleteProductSubscription.unsubscribe();
     }
   }
 }

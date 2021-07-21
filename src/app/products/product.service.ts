@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { Product } from './product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -37,14 +39,11 @@ export class ProductService {
     });
   }
 
-  getProductById(id) {
+  getProductById(id): Observable<object> {
     return this.http.get(`${environment.heroku}/products/${id}`);
   }
 
   editProduct(id, image, title, info, price, userId) {
-    // console.log(id, address, title, info, price, userId)
-    console.log(localStorage.getItem('data'));
-    // debugger
     return this.http.put(
       `${environment.heroku}/products/${id}`,
       {
@@ -55,9 +54,8 @@ export class ProductService {
         userId,
       },
       {
-        headers: { Authorization: `Bearer ${localStorage.getItem('data')}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       }
     );
   }
-
 }
