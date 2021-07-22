@@ -14,10 +14,11 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { ProductsComponent } from './user/products/products.component';
 import { AuthCoreModule } from './core.module/auth/auth.core.module';
+import { PublicComponent } from './public/public.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PublicComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
