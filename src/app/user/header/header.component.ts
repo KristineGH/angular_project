@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 // import { AuthService } from '../auth/signin/auth.service';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from 'src/app/auth/auth.service';
+
 // import { ProductService } from '../products/product.service';
 
 @Component({
@@ -35,7 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onLogin() {
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/signin']);
   }
 
   onLogout() {

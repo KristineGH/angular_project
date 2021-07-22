@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthCoreModule } from '../core.module/auth/auth.core.module';
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, AuthComponent],

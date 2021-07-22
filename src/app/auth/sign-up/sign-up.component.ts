@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       .signUp(email, password)
       .subscribe((data) => {
         if (data.accessToken) {
-          this.router.navigate(['/products']);
+          this.router.navigate(['user/products']);
         }
       });
   }

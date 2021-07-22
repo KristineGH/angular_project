@@ -16,10 +16,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
-    this.deleteProductSubscription = this.productService.getProducts().subscribe((data) => {
-      this.products = JSON.parse(JSON.stringify(data));
-      console.log(data);
-    });
+    this.deleteProductSubscription = this.productService
+      .getProducts()
+      .subscribe((data) => {
+        this.products = JSON.parse(JSON.stringify(data));
+        console.log(data);
+      });
   }
 
   onCreateProduct() {
@@ -39,7 +41,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   onEditProduct(id) {
-    this.router.navigate([`user/products/edit/${id}`])
+    this.router.navigate([`user/products/edit/${id}`]);
   }
 
   ngOnDestroy() {

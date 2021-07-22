@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.userSignInSubscription = this.authService.signIn(email, password).subscribe(
       (data) => {
         if (data.accessToken) {
-          this.router.navigate(['/products']);
+          this.router.navigate(['/user/products']);
         }
       },
       (errorMessage) => {
@@ -45,7 +45,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   }
 
   onRegister() {
-    this.router.navigate(['auth/register']);
+    this.router.navigate(['register']);
   }
 
   ngOnDestroy() {

@@ -33,13 +33,16 @@ export class AddProductComponent implements OnInit, OnDestroy {
     const title = this.createForm.value.title;
     const info = this.createForm.value.info;
     const price = this.createForm.value.price;
-
+    console.log(price)
+    // debugger
     this.sendProductSubscription = this.productService
       .sendProduct(image, title, info, price)
       .subscribe((data) => console.log(data));
 
     this.createForm.reset();
     this.router.navigate(['/user/products']);
+    // debugger
+
   }
 
   ngOnDestroy() {

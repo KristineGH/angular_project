@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <button
     pButton
     type="button"
@@ -37,4 +37,69 @@
       </button>
     </div>
   </div>
+</div> -->
+<div>
+  <button
+    pButton
+    type="button"
+    label="Create"
+    class="p-button-outlined create-button"
+    (click)="onCreateProduct()"
+  ></button>
+  <p-table [value]="products">
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        Products
+        <!-- <p-button icon="pi pi-refresh"></p-button> -->
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Edit</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.title }}</td>
+        <td>
+          <img
+            [src]="product.image"
+            [alt]="product.name"
+            width="100"
+            class="p-shadow-4 table-image"
+          />
+        </td>
+        <td>{{ product.price | currency: "USD" }}</td>
+        <td>{{ product.info }}</td>
+        <td>
+          <button
+            class="btn btn-primary table-button"
+            type="button"
+            (click)="onDeleteProduct(product.id)"
+          >
+            Delete
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-primary table-button"
+            type="button"
+            (click)="onEditProduct(product.id)"
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        In total there are {{ products ? products.length : 0 }} products.
+      </div>
+    </ng-template>
+  </p-table>
 </div>
