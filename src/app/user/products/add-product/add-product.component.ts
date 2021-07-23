@@ -35,7 +35,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
     const price = this.createForm.value.price;
     console.log(price)
     // debugger
-    this.sendProductSubscription = this.productService
+    this.productService
       .sendProduct(image, title, info, price)
       .subscribe((data) => console.log(data));
 

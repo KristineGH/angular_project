@@ -12,3 +12,7 @@ import { UserComponent } from './user.component';
   imports: [CommonModule, FormsModule, ReactiveFormsModule, UserRoutingModule],
 })
 export class UserModule {}
+
+
+
+
