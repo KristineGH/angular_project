@@ -22,11 +22,7 @@ import { AuthCoreModule } from './core.module/auth/auth.core.module';
     HttpClientModule,
     AppRoutingModule,
     ButtonModule,
-    // AccordionModule,
-    // InputTextModule,
-    // BadgeModule,
     AuthCoreModule,
-    // TableModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],

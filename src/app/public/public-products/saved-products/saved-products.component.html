@@ -1,18 +1,26 @@
 <app-public-header></app-public-header>
 <div class="saved-component-items">
-  <div class="card mb-3" style="max-width: 540px" *ngFor="let product of savedProducts">
+  <div
+    class="card mb-3"
+    style="max-width: 540px"
+    *ngFor="let product of savedProducts"
+  >
     <div class="row g-0">
       <div class="col-md-4">
-        <img [src]="product.image" class="img-fluid rounded-start" alt="..." />
+        <img
+          [src]="product.image"
+          class="img-fluid rounded-start saved-component-image"
+          alt="..."
+        />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{product.title}}</h5>
+          <h5 class="card-title">{{ product.title }}</h5>
           <p class="card-text">
-            {{product.info}}
+            {{ product.info }}
           </p>
           <p class="card-text">
-            <small class="text-muted">{{product.price}}</small>
+            {{ product.price | currency }}
           </p>
         </div>
       </div>

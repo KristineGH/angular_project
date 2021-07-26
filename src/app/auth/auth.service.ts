@@ -9,7 +9,7 @@ export interface AuthResponseData {
   accessToken: string;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthService {
   user = new BehaviorSubject<User | null>(null);
 

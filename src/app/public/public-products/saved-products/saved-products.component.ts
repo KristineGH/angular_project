@@ -8,11 +8,12 @@ import { PublicProductService } from '../public-product.service';
   styleUrls: ['./saved-products.component.scss'],
 })
 export class SavedProductsComponent implements OnInit {
-  public savedProducts :Product []= [];
+  public savedProducts: Product[] = [];
 
   constructor(private publicProductService: PublicProductService) {}
 
   ngOnInit(): void {
-    this.savedProducts = this.publicProductService.favoriteProductsArr.getValue()
+    this.savedProducts =
+      this.publicProductService.favoriteProductsArr.getValue();
   }
 }

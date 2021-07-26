@@ -7,8 +7,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class PublicProductService {
-
-  public favoriteProductsArr : BehaviorSubject<Array<any>> = new BehaviorSubject([])
+  public favoriteProductsArr: BehaviorSubject<Array<any>> = new BehaviorSubject(
+    []
+  );
 
   constructor(private http: HttpClient) {}
 

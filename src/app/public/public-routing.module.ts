@@ -5,7 +5,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./public-products/public-products.module').then((m) => m.PublicProductsModule),
+      import('./public-products/public-products.module').then(
+        (m) => m.PublicProductsModule
+      ),
   },
 ];
 

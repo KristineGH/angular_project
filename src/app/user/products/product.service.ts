@@ -23,18 +23,21 @@ export class ProductService {
         info,
         price,
         userId: 4,
-      },
-      {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       }
+      // {
+      //   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      // }
     );
   }
 
   deleteProduct(productId) {
     console.log(localStorage.getItem('token'));
-    return this.http.delete(`${environment.heroku}/products/${productId}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-    });
+    return this.http.delete(
+      `${environment.heroku}/products/${productId}`
+      // {
+      //   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      // }
+    );
   }
 
   getProductById(id): Observable<object> {
@@ -50,10 +53,10 @@ export class ProductService {
         info,
         price,
         userId,
-      },
-      {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       }
+      // {
+      //   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      // }
     );
   }
 }
