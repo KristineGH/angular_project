@@ -13,6 +13,7 @@ import {TableModule} from 'primeng/table';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthCoreModule } from './core.module/auth/auth.core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AuthCoreModule } from './core.module/auth/auth.core.module';
     AppRoutingModule,
     ButtonModule,
     AuthCoreModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],

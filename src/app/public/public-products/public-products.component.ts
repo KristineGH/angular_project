@@ -10,6 +10,8 @@ import { PublicProductService } from './public-product.service';
 })
 export class PublicProductsComponent implements OnInit, OnDestroy {
   public products: Product[] = [];
+  display: boolean = false;
+  public modal = false;
   private getProductsSubscription: Subscription;
   constructor(private publicProductService: PublicProductService) {}
 
@@ -22,10 +24,20 @@ export class PublicProductsComponent implements OnInit, OnDestroy {
   }
 
   onAddFavorites(product) {
-    this.publicProductService.favoriteProductsArr.next([
-      ...this.publicProductService.favoriteProductsArr.getValue(),
-      product,
-    ]);
+    if (
+      this.publicProductService.favoriteProductsArr
+        .getValue()
+        .some((p) => p.title == product.title)
+    ) {
+      this.display = true;
+      // this.modal = true;
+      // console.log(this.modal)
+    } else {
+      this.publicProductService.favoriteProductsArr.next([
+        ...this.publicProductService.favoriteProductsArr.getValue(),
+        product,
+      ]);
+    }
   }
 
   ngOnDestroy() {

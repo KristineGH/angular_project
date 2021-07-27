@@ -2,8 +2,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
+  // canActivateChild: [AuthGuard],
   {
-    path: 'user',
+    path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
   },

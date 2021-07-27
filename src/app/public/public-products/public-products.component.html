@@ -1,24 +1,34 @@
 <app-public-header></app-public-header>
-<div class="public-products">
-  <div class="card" *ngFor="let product of products">
-    <img [src]="product.image" class="card-img-top card-image" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ product.title }}</h5>
-      <p class="card-text" [title]="product.info">
-        {{
-          product.info.length > 20
-            ? (product.info | slice: 0:15) + "..."
-            : product.info
-        }}
-      </p>
-      <p class="card-text">{{ product.price | currency }}</p>
-      <button
-        class="btn btn-primary delete-button"
-        type="button"
-        (click)="onAddFavorites(product)"
-      >
-        Add to Favorites
-      </button>
+<div>
+  <div class="public-products">
+    <div class="card" *ngFor="let product of products">
+      <img [src]="product.image" class="card-img-top card-image" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text" [title]="product.info">
+          {{
+            product.info.length > 20
+              ? (product.info | slice: 0:15) + "..."
+              : product.info
+          }}
+        </p>
+        <p class="card-text">{{ product.price | currency }}</p>
+        <button
+          class="btn btn-primary delete-button"
+          type="button"
+          (click)="onAddFavorites(product)"
+        >
+          Add to Favorites
+        </button>
+      </div>
     </div>
   </div>
+  <!-- <ng-container > -->
+    <!-- <div>
+      Already in favorite list
+    </div> -->
+    <p-dialog header="Title" [(visible)]="display">
+      Content
+  </p-dialog>
+  <!-- </ng-container> -->
 </div>

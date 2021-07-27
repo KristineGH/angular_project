@@ -9,7 +9,7 @@ import { HeaderSharedModule } from './shared/components/header-shared.module';
 import { BadgeModule } from 'primeng/badge';
 
 @NgModule({
-  declarations: [PublicComponent, PublicProductsComponent],
+  declarations: [PublicComponent],
   imports: [
     CommonModule,
     FormsModule,

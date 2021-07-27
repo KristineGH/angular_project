@@ -8,9 +8,7 @@ import { StartProductsComponent } from './start-products/start-products.componen
 
 const routes: Routes = [
   {
-    path: 'products',
-    component: StartProductsComponent,
-    canActivateChild: [AuthGuard],
+    path: '',
     children: [
       { path: '', pathMatch: 'full', component: ProductsComponent },
       { path: 'add', component: AddProductComponent },
