@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { UserComponent } from './user.component';
 import { AuthGuard } from '../auth/auth.guard';
 
+
 const routes: Routes = [
   // canActivateChild: [AuthGuard],
   {

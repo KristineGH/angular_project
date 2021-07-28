@@ -15,20 +15,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
 
   validUser = false;
+  validToken: string;
   savedItemNumber;
 
   constructor(
     private router: Router,
-    private authService: AuthService,
-    // private productService: ProductService
-  ) {}
+    private authService: AuthService
+  ) // private productService: ProductService
+  {}
 
   ngOnInit() {
     this.userSubscription = this.authService.user.subscribe((user) => {
       if (user) {
         this.validUser = true;
+        this.validToken = user.getToken();
       }
     });
+
+    if (this.authService.tokenExpired(this.validToken)) {
+      this.authService.logout();
+      console.log('exp');
+    }
 
     // this.productService.savedItemArr.subscribe((data) => {
     //   this.savedItemNumber = data.length;
@@ -42,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout() {
     this.authService.logout();
     this.validUser = false;
-    this.router.navigate(["/products"])
+    this.router.navigate(['/products']);
   }
 
   onSaved() {
