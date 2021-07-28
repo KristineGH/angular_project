@@ -21,7 +21,12 @@ export class SignInComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
+    
+
+  ngOnInit(): void { 
+    if (localStorage.getItem('token')){
+      this.router.navigate(["user/products"])
+    }
     this.signInForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],

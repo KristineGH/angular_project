@@ -28,6 +28,7 @@
             aria-describedby="emailHelp"
             formControlName="title"
           />
+          <p class="text-muted" *ngIf="createForm.controls.title.status === 'INVALID' && createForm.controls.title.touched === true">*Please enter a Title</p>
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Description</label>
@@ -38,6 +39,7 @@
             aria-describedby="emailHelp"
             formControlName="info"
           ></textarea>
+          <p class="text-muted" *ngIf="createForm.controls.info.status === 'INVALID' && createForm.controls.info.touched === true">*Please enter a Description</p>
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Price</label>
@@ -48,6 +50,7 @@
             aria-describedby="emailHelp"
             formControlName="price"
           />
+          <p class="text-muted" *ngIf="createForm.controls.price.status === 'INVALID' && createForm.controls.price.touched === true">*Please enter a valid Price </p>
         </div>
         <button
           type="submit"

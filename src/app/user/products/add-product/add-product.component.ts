@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class AddProductComponent implements OnInit, OnDestroy {
   public createForm;
   private sendProductSubscription: Subscription;
+  private url =
+    '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +35,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
     const title = this.createForm.value.title;
     const info = this.createForm.value.info;
     const price = this.createForm.value.price;
-    console.log(price)
+    console.log(this.createForm);
     // debugger
     this.productService
       .sendProduct(image, title, info, price)
@@ -42,7 +44,6 @@ export class AddProductComponent implements OnInit, OnDestroy {
     this.createForm.reset();
     this.router.navigate(['/user/products']);
     // debugger
-
   }
 
   ngOnDestroy() {

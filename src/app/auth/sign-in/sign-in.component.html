@@ -8,6 +8,9 @@
       [formGroup]="signInForm"
       (ngSubmit)="onSubmit()"
     >
+      <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{ error }}
+      </div>
       <h4>We are <span>NUVA</span></h4>
       <p>Welcome back! Log in to your account</p>
       <div class="floating-label">
@@ -20,6 +23,15 @@
           formControlName="email"
         />
         <label for="email">Email:</label>
+        <p
+          class="text-muted invalid-text"
+          *ngIf="
+            signInForm.controls.email.status === 'INVALID' &&
+            signInForm.controls.email.touched === true
+          "
+        >
+          *Please enter a valid Email
+        </p>
       </div>
       <div class="floating-label">
         <input
@@ -31,6 +43,15 @@
           formControlName="password"
         />
         <label for="password">Password:</label>
+        <p
+          class="text-muted invalid-text"
+          *ngIf="
+            signInForm.controls.password.status === 'INVALID' &&
+            signInForm.controls.password.touched === true
+          "
+        >
+          *Please enter a valid Password
+        </p>
       </div>
       <button type="submit" [disabled]="!signInForm.valid">Sign in</button>
       <p class="register-btn" (click)="onRegister()">Not Registered Yet?</p>
