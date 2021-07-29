@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 export class AddProductComponent implements OnInit, OnDestroy {
   public createForm;
   private sendProductSubscription: Subscription;
-  private url =
-    '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  private url = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
   constructor(
     private fb: FormBuilder,

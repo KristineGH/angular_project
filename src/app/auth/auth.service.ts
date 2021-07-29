@@ -13,7 +13,7 @@ export interface AuthResponseData {
 @Injectable()
 export class AuthService {
   user = new BehaviorSubject<User | null>(null);
-  public errorMessage: string
+  public errorMessage: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -68,10 +68,9 @@ export class AuthService {
   }
 
   tokenExpired(token: string) {
-    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
-    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
+    const expiry = JSON.parse(atob(token.split('.')[1])).exp;
+    return Math.floor(new Date().getTime() / 1000) >= expiry;
   }
-  
 
   handleError(errorRes: HttpErrorResponse) {
     this.errorMessage = 'Invalid email or password';
@@ -81,8 +80,8 @@ export class AuthService {
     return throwError(errorRes);
   }
 
-  logout(){
-    localStorage.removeItem("token")
-    this.router.navigate(["/signin"])
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/signin']);
   }
 }

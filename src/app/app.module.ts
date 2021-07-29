@@ -6,15 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ButtonModule } from 'primeng/button';
-import {TableModule} from 'primeng/table';
-// import { BadgeModule } from 'primeng/badge';
-// import { AccordionModule } from 'primeng/accordion';
-// import { InputTextModule } from 'primeng/inputtext';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthCoreModule } from './core.module/auth/auth.core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ButtonModule,
     AuthCoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],

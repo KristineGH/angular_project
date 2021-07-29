@@ -20,9 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private authService: AuthService
-  ) // private productService: ProductService
-  {}
+    private authService: AuthService // private productService: ProductService
+  ) {}
 
   ngOnInit() {
     this.userSubscription = this.authService.user.subscribe((user) => {
