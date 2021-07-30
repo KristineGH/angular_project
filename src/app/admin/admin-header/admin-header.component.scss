@@ -1,3 +1,5 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 .header-content {
   height: 63px;
   background-color: #c9e6ff;
@@ -11,4 +13,11 @@
   margin-right: 76%;
   cursor: pointer;
   float: left;
+}
+
+.header-person-icon {
+  float: right;
+  font-size: 44px;
+  margin-right: 20px;
+  margin-top: -43px;
 }
