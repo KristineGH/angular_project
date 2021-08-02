@@ -5,11 +5,12 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { AuthCoreModule } from '../core.module/auth/auth.core.module';
+import {FileUploadModule} from 'primeng/fileupload';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, AuthComponent],
-  imports: [CommonModule, FormsModule, AuthRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, AuthRoutingModule, ReactiveFormsModule, FileUploadModule,HttpClientModule],
   
 })
 export class AuthModule {}

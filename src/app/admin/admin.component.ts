@@ -11,18 +11,14 @@ export class AdminComponent implements OnInit {
     {
       name: 'Ani',
       mail: 'ani@gmail.com',
-      password: 'ani1144',
-      status: 'user',
-      token: 'token',
-      userId: 11
+      id: 12,
+      isAdmin: true 
     },
     {
       name: 'Kristine',
       mail: 'kristine.gh@gmail.com',
-      password: '123456',
-      status: 'user',
-      token: 'token',
-      userId: 12
+      id: 13,
+      isAdmin: false 
     },
   ];
 

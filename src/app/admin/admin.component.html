@@ -63,25 +63,12 @@
               ></p-columnFilter>
             </div>
           </th>
-          <th pSortableColumn="password">
-            <div class="p-d-flex p-jc-between p-ai-center">
-              Password
-              <p-sortIcon field="password"></p-sortIcon>
-              <p-columnFilter
-                type="text"
-                field="password"
-                display="menu"
-                class="p-ml-auto"
-              >
-              </p-columnFilter>
-            </div>
-          </th>
           <th pSortableColumn="token">
             <div class="p-d-flex p-jc-between p-ai-center">
-              Token
+              ID
               <p-sortIcon field="token"></p-sortIcon>
               <p-columnFilter
-                type="text"
+                type="number"
                 field="token"
                 display="menu"
                 class="p-ml-auto"
@@ -90,7 +77,7 @@
           </th>
           <th pSortableColumn="status">
             <div class="p-d-flex p-jc-between p-ai-center">
-              Status
+              Admin
               <p-sortIcon field="status"></p-sortIcon>
               <p-columnFilter
                 field="status"
@@ -101,6 +88,7 @@
               </p-columnFilter>
             </div>
           </th>
+          <th style="width: 8rem"></th>
           <th style="width: 8rem"></th>
           <th style="width: 8rem"></th>
         </tr>
@@ -117,13 +105,10 @@
             <span class="p-column-title">{{ user.mail }}</span>
           </td>
           <td>
-            <span class="p-column-title">{{ user.password }}</span>
+            <span class="p-column-title">{{ user.id }}</span>
           </td>
           <td>
-            <span class="p-column-title">{{ user.token }}</span>
-          </td>
-          <td>
-            <span class="p-column-title">{{ user.status }}</span>
+            <span class="p-column-title">{{ user.isAdmin }}</span>
           </td>
           <td style="text-align: center">
             <button

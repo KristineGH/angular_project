@@ -39,8 +39,14 @@ export class SignInComponent implements OnInit, OnDestroy {
 
     this.userSignInSubscription = this.authService.signIn(email, password).subscribe(
       (data) => {
-        if (data.accessToken) {
-          this.router.navigate(['/user/products']);
+        console.log(data)
+        // if (data.token && data.isAdmin) {
+        //   this.router.navigate(['/admin']);
+        // } else if(data.token && !data.isAdmin) {
+        //   this.router.navigate(['/user/products']);
+        // }
+        if(data.accessToken) {
+          this.router.navigate(["/user/products"])
         }
       },
       (errorMessage) => {

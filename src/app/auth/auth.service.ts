@@ -7,7 +7,13 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 export interface AuthResponseData {
-  accessToken: string;
+  // token: string;
+  // id: number,
+  // email: string,
+  // password: string,
+  // name: string,
+  // isAdmin: boolean
+  accessToken: string
 }
 
 @Injectable()
@@ -27,23 +33,26 @@ export class AuthService {
         catchError(this.handleError),
         tap((res: AuthResponseData) => {
           console.log(res);
+          // this.handleAuthentication(res.token);
           this.handleAuthentication(res.accessToken);
         })
       );
   }
 
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, name:string, isAdmin: boolean) {
     return this.http
       .post(`${environment.heroku}/register`, {
         email,
         password,
+        name,
+        isAdmin
       })
       .pipe(
         catchError(this.handleError),
         tap((res: AuthResponseData) => {
           console.log(res);
-          this.handleAuthentication(res.accessToken);
-          // this.tokenExpired(res.accessToken)
+          // this.handleAuthentication(res.token);
+          this.tokenExpired(res.accessToken)
         })
       );
   }

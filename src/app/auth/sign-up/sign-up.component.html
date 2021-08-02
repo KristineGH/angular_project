@@ -2,16 +2,33 @@
   <div class="session">
     <div class="left"></div>
     <form
-      action=""
       class="log-in"
       autocomplete="off"
       [formGroup]="signUpForm"
       (ngSubmit)="onSubmit()"
     >
       <h4>We are <span>NUVA</span></h4>
-      <p>Sign up to create a new account</p>
+      <div>
+        <p class="upload-text">Choose your image</p>
+        <p-fileUpload  url="./upload.php" class="upload" fileLimit = "1"
+        accept="image/*" name="Choose image" [auto]="true"></p-fileUpload>
+
+      </div>
       <div class="floating-label">
         <input
+          class="input-text"
+          placeholder="Name"
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="off"
+          formControlName="name"
+        />
+        <label for="name">Name</label>
+      </div>
+      <div class="floating-label">
+        <input
+          class="input-text"
           placeholder="Email"
           type="text"
           name="email"
@@ -23,6 +40,7 @@
       </div>
       <div class="floating-label">
         <input
+          class="input-text"
           placeholder="Password"
           type="password"
           name="password"
@@ -32,6 +50,11 @@
         />
         <label for="password">Password:</label>
       </div>
+      <label class="container"
+        >Admin
+        <input type="checkbox" id = "checkbox"  formControlName="admin" />
+        <span class="checkmark"></span>
+      </label>
       <button type="submit" [disabled]="!signUpForm.valid">Sign up</button>
     </form>
   </div>
