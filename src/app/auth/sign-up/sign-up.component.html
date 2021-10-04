@@ -8,11 +8,17 @@
       (ngSubmit)="onSubmit()"
     >
       <h4>We are <span>NUVA</span></h4>
-      <div>
+      <!-- <div>
         <p class="upload-text">Choose your image</p>
         <p-fileUpload  url="./upload.php" class="upload" fileLimit = "1"
         accept="image/*" name="Choose image" [auto]="true"></p-fileUpload>
 
+      </div> -->
+      <div>
+        <input type="file" (change)="selectFile($event)">
+        <div>
+          <img [src]="image" alt="" style="width: 100px;">
+        </div>
       </div>
       <div class="floating-label">
         <input

@@ -14,6 +14,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
   private userSignUpSubscription: Subscription;
   private isAdmin = false;
 
+  public image;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -52,6 +54,23 @@ export class SignUpComponent implements OnInit, OnDestroy {
           this.router.navigate(["user/products"])
         }
       });
+  }
+
+  selectFile(event: Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.convertToBase64(file);
+
+    console.log(file)  
+  }
+
+  convertToBase64(file) {
+    const fileReader = new FileReader;
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      this.image = fileReader.result
+      console.log(this.image)
+    }
   }
 
   // onCheckChange(){

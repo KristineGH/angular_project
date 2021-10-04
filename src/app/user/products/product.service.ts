@@ -22,7 +22,7 @@ export class ProductService {
         title,
         info,
         price,
-        userId: 4,
+        userId: 1,
       }
       // {
       //   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
