@@ -1,5 +1,20 @@
-<div class="container">
-    <div class="ineer-input">
-        <p class="text-paragraph" appHighlight *ngFor="let text of words">{{text}}</p>
+<div class="component">
+    <div class="">
+        <div class="container">
+            <div class="ineer-input">
+                <p class="text-paragraph" appHighlight *ngFor="let text of words">{{text}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="second">
+        <div class="second-container">
+            <form [formGroup]='createForm' (ngSubmit)='onSubmit()'>
+                <input type="text" class="form-control" formControlName="input" />
+                <button class=" btn btn-primary" type="submit">Submit</button>
+            </form>
+            <div *ngFor="let item of text">
+                <p class="second-ph" [innerHtml]="item | highlightPipe: findText" title="{{item}}">{{item}}</p>
+            </div>
+        </div>
     </div>
 </div>

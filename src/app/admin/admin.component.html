@@ -28,7 +28,7 @@
             <input
               pInputText
               type="text"
-              (input)="dt.filterGlobal($event.target.value, 'contains')"
+              (input)="dt.filterGlobal(($event.target), 'contains')"
               placeholder="Global Search"
             />
           </span>

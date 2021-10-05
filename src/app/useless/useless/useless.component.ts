@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-useless',
@@ -7,11 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UselessComponent implements OnInit {
 
-  public words = ['AAA', 'BBB', 'CCC']
+  public createForm;
+  public findText;
+  public words = ['AAA', 'BBB', 'CCC'];
+  public text = ['Text', 'Test', 'Item', 'Button', 'Module'];
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.createForm = this.fb.group({
+      input: ['']
+    })
+  }
+
+  onSubmit() {
+    this.findText = this.createForm.value.input
   }
 
 }
